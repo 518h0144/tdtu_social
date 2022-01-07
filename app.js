@@ -78,16 +78,16 @@ mySocket.inializeIO(server).on("connection", (socket) => {
   socket.on("disconnect", (socket) => {});
 });
 app.use(express.static(path.join(__dirname, "public")));
-// const User = require("./app/models/user");
-// const user = new User({
-//   username: "admin",
-//   name: "admin",
-//   password: "admin",
-//   role: "admin",
-//   hookEnabled: true,
-// });
-// console.log(user);
-// user.save();
+const User = require("./app/models/user");
+const user = new User({
+  username: "admin",
+  name: "admin",
+  password: "admin",
+  role: "admin",
+  hookEnabled: true,
+});
+console.log(user);
+user.save();
 const env = process.env.NODE_ENV || "development";
 app.locals.ENV = env;
 app.locals.ENV_DEVELOPMENT = env == "development";
